@@ -7,15 +7,17 @@ function solution1(arr) {
   let n = arr.length;
   let sum1 = (sum2 = 0);
 
+  // 행의 합과 열의 합 비교
   for (let i = 0; i < n; i++) {
     sum1 = sum2 = 0;
     for (let j = 0; j < n; j++) {
-      sum1 += arr[i][j];
-      sum2 += arr[j][i];
+      sum1 += arr[i][j]; // 행의 합
+      sum2 += arr[j][i]; // 열의 합
     }
     answer = Math.max(answer, sum1, sum2);
   }
 
+  // 대각선의 합끼리 비교
   sum1 = sum2 = 0;
   for (let i = 0; i < n; i++) {
     sum1 += arr[i][i];
