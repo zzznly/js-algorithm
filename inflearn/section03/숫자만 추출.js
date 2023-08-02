@@ -13,7 +13,7 @@ function solution1(str) {
   return answer;
 }
 
-// 강의 풀이:
+// 강의 풀이 1:
 function solution2(str) {
   let answer = 0;
 
@@ -24,5 +24,21 @@ function solution2(str) {
   return parseInt(answer);
 }
 
+// 강의 풀이 2:
+function solution3(str) {
+  let answer = 0;
+
+  for (let x of str) {
+    if (!isNaN(x)) answer = answer * 10 + Number(x); // ***
+    // 2 = 0 * 10 + 2
+    // 20 = 2 * 10 + 2
+    // 208 = 20 * 10 + 8
+  }
+
+  return parseInt(answer);
+}
+
+// 출력:
 console.log(solution1("g0en2T0s8eSoft")); // 208
 console.log(solution2("g0en2T0s8eSoft")); // 208
+console.log(solution3("g0en2T0s8eSoft")); // 208
