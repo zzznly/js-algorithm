@@ -24,7 +24,7 @@ function solution1(arr) {
   for (let x of arr) {
     let reverse = Number(x.toString().split("").reverse().join(""));
 
-    if (getDivision(reverse)[1] === reverse) answer.push(reverse);
+    if (getDivision(reverse).length === 2) answer.push(reverse);
   }
 
   return answer;
@@ -34,6 +34,7 @@ function solution1(arr) {
 function isPrime(num) {
   if (num === 1) return false;
   for (let i = 2; i <= parseInt(Math.sqrt(num)); i++) {
+    //  이미 제곱근 이전에 약수가 없다면 이후에도 약수 있을 가능성 없음
     if (num % i === 0) return false;
   }
   return true;
@@ -47,7 +48,7 @@ function solution2(arr) {
 
     while (x) {
       let t = x % 10;
-      res = res * 10 + t;
+      res = res * 10 + t; // 숫자 뒤집기
       x = parseInt(x / 10);
     }
 
